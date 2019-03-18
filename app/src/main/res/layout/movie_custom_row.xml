@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="false" >
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="117dp"
+        android:layout_height="150dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="271dp"
+        android:layout_height="153dp"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvMovieName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:text="movie title"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="asdasd" />
+
+        <Button
+            android:id="@+id/btAddToWishList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add to Wishlist" />
+
+        <Button
+            android:id="@+id/infBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="More Info" />
+    </LinearLayout>
+
+</LinearLayout>
