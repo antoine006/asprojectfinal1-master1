@@ -2,6 +2,7 @@ package com.example.hp1.asproject;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Moviedetails extends AppCompatActivity {
@@ -9,6 +10,7 @@ public class Moviedetails extends AppCompatActivity {
     TextView tvName;
     TextView tvRating;
     TextView tvSummary;
+    ImageView tvImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,9 @@ public class Moviedetails extends AppCompatActivity {
 
             tvSummary = findViewById(R.id.tvSummary);
             tvSummary.setText(movie.getSummary());
+
+            tvImage = findViewById(R.id.tvImage);
+            tvImage.setImageResource(movie.getImage());
         }
 
     }

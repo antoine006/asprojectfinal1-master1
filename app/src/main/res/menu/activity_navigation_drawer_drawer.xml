@@ -9,20 +9,11 @@
             android:title="main"/>
         <item
             android:id="@+id/Sign_up"
-            android:icon="@drawable/ic_menu_camera"
             android:title="sign up" />
         <item
             android:id="@+id/Sign_in"
-            android:icon="@drawable/ic_menu_gallery"
             android:title="sign in" />
-        <item
-            android:id="@+id/WishList"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="WishList" />
-        <item
-            android:id="@+id/Top_10"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="top 10" />
+
     </group>
 
 

@@ -33,7 +33,6 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".signup" />
         <activity android:name=".CameraGalleryActivity" />
-        <activity android:name=".Products" />
         <activity android:name=".FireActivity" />
         <activity android:name=".sharedactivity" />
         <activity android:name=".Main2Activity" />

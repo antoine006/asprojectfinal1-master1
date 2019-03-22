@@ -257,13 +257,8 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 startActivity(signInPage);
                 break;
 
-            case R.id.WishList:
 
-                break;
 
-            case R.id.Top_10:
-
-                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
