@@ -26,6 +26,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -40,25 +41,27 @@ import static com.example.hp1.asproject.CameraGalleryActivity.CAMERA_REQUEST;
 public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final int WRITE_REQUEST_CODE = 2;
     DrawerLayout drawer;
     ImageView profilepicture;
     Bitmap bitmap;
     private static final int CAMERA_REQUEST = 0;
     private static final int SELECT_IMAGE = 1;
+    private static final int NOTIFICATION_REMINDER_NIGHT = 2;
     private int requestCode;
     private int grantResults[];
-    private static final int WRITE_EXTERNAL_STORGE = 2;
-
+    public static final int PICK_IMAGE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
 
-      /*  if(ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORGE) == PackageManager.PERMISSION_DENIED){
-            ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.WRITE_EXTERNAL_STORGE}, requestCode);
+        if (ContextCompat.checkSelfPermission(this, String.valueOf(Manifest.WRITE_EXTERNAL_STORAGE)) == PackageManager.PERMISSION_DENIED) {
+            //if you dont have required permissions ask for it (only required for API 23+)
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
         }
-*/
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -102,9 +105,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
             case 1: {
 
                 // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Log.d("","granted");
                 } else {
 
@@ -156,7 +157,10 @@ public class NavigationDrawerActivity extends AppCompatActivity
             }
         }
     }
-
+    private void openGallery(){
+        Intent gallary = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallary, PICK_IMAGE);
+    }
 
     public String saveImage(Bitmap bitmap) {
 
@@ -179,7 +183,6 @@ public class NavigationDrawerActivity extends AppCompatActivity
         return filePath;
 
     }
-
 
     @Override
     public void onBackPressed() {
@@ -257,6 +260,10 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 startActivity(signInPage);
                 break;
 
+            case R.id.wishList:
+                Intent wishList = new Intent(getApplicationContext(), signin.class);
+                startActivity(wishList);
+                break;
 
 
         }
