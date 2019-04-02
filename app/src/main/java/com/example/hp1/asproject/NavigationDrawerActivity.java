@@ -1,5 +1,6 @@
 package com.example.hp1.asproject;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -33,6 +35,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.security.Permission;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -57,7 +60,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
 
-        if (ContextCompat.checkSelfPermission(this, String.valueOf(Manifest.WRITE_EXTERNAL_STORAGE)) == PackageManager.PERMISSION_DENIED) {
+        if (ContextCompat.checkSelfPermission(this, String.valueOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)) == PackageManager.PERMISSION_DENIED) {
             //if you dont have required permissions ask for it (only required for API 23+)
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
         }
