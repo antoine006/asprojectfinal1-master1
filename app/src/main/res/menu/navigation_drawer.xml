@@ -6,9 +6,4 @@
         android:title="About"
         android:orderInCategory="100"
         android:id="@+id/about"/>
-
-    <item
-        android:title="sign out"
-        android:orderInCategory="100"
-        android:id="@+id/sign_out"/>
 </menu>

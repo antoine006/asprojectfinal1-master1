@@ -34,7 +34,7 @@ public class CameraGalleryActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view) {      //takes a picture
         if (view == camera) {
             Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(i, CAMERA_REQUEST);
