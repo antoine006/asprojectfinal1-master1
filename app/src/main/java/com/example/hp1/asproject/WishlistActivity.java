@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 
-public class WishlistActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class WishlistActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{   //gets the logged in user's infommation
     ListView wishlist;
 
     //get the current user logged in, then get the UID set by the firebase
@@ -48,7 +48,7 @@ public class WishlistActivity extends AppCompatActivity implements AdapterView.O
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { //adds a movie to the wishlist page
                 Movie movie = dataSnapshot.getValue(Movie.class);
                 wishlists.add(movie);
                 arrayAdapter.notifyDataSetChanged();

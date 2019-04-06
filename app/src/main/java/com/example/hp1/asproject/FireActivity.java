@@ -37,7 +37,7 @@ public class FireActivity extends AppCompatActivity {
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, users);
         IVUSERS.setAdapter(adapter);
 
-        myRef.addChildEventListener(new ChildEventListener() {
+        myRef.addChildEventListener(new ChildEventListener() { //builds an account for the user
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 String name = dataSnapshot.getValue(String.class);

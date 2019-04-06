@@ -23,7 +23,8 @@ private Context mContext;
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) { //creatsa a custom ListView of by subclassing ArrayAdapter
+        // with the DataModel as the object.
         View v = convertView;
 
         if(v==null)

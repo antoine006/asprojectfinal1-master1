@@ -37,7 +37,8 @@ public class Main2Activity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long ld) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long ld) {//This activity invokes when the user clicks
+        // on an item and sends him to the MoviesListActivity according to the clicked item
         //  String selectedItem = arrayList.get(position);
         Intent i = new Intent(this, MoviesListActivity.class);
         if(position==0){

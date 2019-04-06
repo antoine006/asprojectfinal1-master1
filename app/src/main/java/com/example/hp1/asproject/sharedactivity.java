@@ -13,7 +13,7 @@ public class sharedactivity extends AppCompatActivity implements View.OnClickLis
  EditText Etname;
  TextView tvName;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { // this function saves the the information for every user
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sharedactivity);
 

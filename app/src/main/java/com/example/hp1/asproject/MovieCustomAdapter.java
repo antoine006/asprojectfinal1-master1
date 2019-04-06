@@ -25,7 +25,7 @@ public class MovieCustomAdapter extends ArrayAdapter<Movie> {
     private Context mContext;
     Button btAddToWishList;
 
-    //get the current user logged in, then get the UID set by the firebase
+    //get the current user logged in, then get the user id set by the firebase
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
     String userId = currentUser.getUid();
@@ -36,8 +36,8 @@ public class MovieCustomAdapter extends ArrayAdapter<Movie> {
         this.resourceLayout = resource;
         this.mContext = context;
     }
-
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+//View is a basic building block of UI (User Interface) in android
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) { //
         View v = convertView;
 
         if(v==null)
@@ -50,7 +50,7 @@ public class MovieCustomAdapter extends ArrayAdapter<Movie> {
             ImageView imageView=(ImageView)v.findViewById(R.id.imageview);
             imageView.setImageResource(p.getImage());
 
-            Button btAdd =v.findViewById(R.id.btAddToWishList);
+             Button btAdd =v.findViewById(R.id.btAddToWishList);
             btAdd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

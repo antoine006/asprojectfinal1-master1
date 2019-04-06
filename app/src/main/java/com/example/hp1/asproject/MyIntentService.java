@@ -23,7 +23,7 @@ private static final int NOTIFICATION_ID = 2;
     }
 
     @Override
-    protected void onHandleIntent(Intent intent) {
+    protected void onHandleIntent(Intent intent) { //this function allows the notification precces to run independently
         Notification.Builder builder = new Notification.Builder(this);
         builder.setContentTitle("My Title");
         builder.setContentText("This is the Body");

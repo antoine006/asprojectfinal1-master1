@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 1000 * 60 * 60 * 24, pendingIntent);
 
 
-        for(int i = 0; i< arrayList.size() ; i++){
+        for(int i = 0; i< arrayList.size() ; i++){  //the inflater is used to instantiate layout XML file into its corresponding View objects.
             View view = inflater.inflate(R.layout.horiz_item, gallery, false);
             TextView text = view.findViewById(R.id.horText);
             text.setText(arrayList.get(i).getName());

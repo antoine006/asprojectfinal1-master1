@@ -27,7 +27,8 @@ public class WishlistCustomAdapter extends ArrayAdapter<Movie> {
 
 
 
-    public WishlistCustomAdapter(@NonNull Context context, int resource, @NonNull List<Movie> objects) {
+    public WishlistCustomAdapter(@NonNull Context context, int resource, @NonNull List<Movie> objects) {//creating a custom ListView of by
+        // subclassing ArrayAdapter with the DataModel as the object.
         super(context, resource, objects);
         this.resourceLayout = resource;
         this.mContext = context;

@@ -56,9 +56,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
     public static final int PICK_IMAGE = 1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_navigation_drawer);
+    protected void onCreate(Bundle savedInstanceState) { //onCreate is used to start an activity
+        super.onCreate(savedInstanceState);              //super is used to call the parent class constructor
+        setContentView(R.layout.activity_navigation_drawer); //setContentView is used to set the xml
 
         if (ContextCompat.checkSelfPermission(this, String.valueOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)) == PackageManager.PERMISSION_DENIED) {
             //if you dont have required permissions ask for it (only required for API 23+)
@@ -88,18 +88,11 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
         profilepicture.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {    // when the user presses on the profilepicture imageview the app sends him to camera to take a picture
                 Intent i =new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(i,CAMERA_REQUEST);
             }
         });
-//        if (savedInstanceState == null) {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                    new FragmentMain()).commit();
-//            navigationView.setCheckedItem(R.id.Main);
-//
-//        }
-
     }
 
     @Override // android recommended class to handle permissions
@@ -122,13 +115,14 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 return;
             }
 
-            // other 'case' line to check fosr other
+            // other 'case' line to check for other
             // permissions this app might request
         }
     }
 
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
+    public void onActivityResult(int requestCode, int resultCode, Intent data){  // this function is invoked when the user takes a picture,
+        // from the camera or the gallery(the function checks the source if it's from the camera or the gallery)and sets the selected image to be the profilepicture
 
 
         if(requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK){
@@ -160,12 +154,12 @@ public class NavigationDrawerActivity extends AppCompatActivity
             }
         }
     }
-    private void openGallery(){
+    private void openGallery(){  // the function opens the gallery
         Intent gallary = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallary, PICK_IMAGE);
     }
 
-    public String saveImage(Bitmap bitmap) {
+    public String saveImage(Bitmap bitmap) { // saves the image
 
         File root = Environment.getExternalStorageDirectory();
 
@@ -188,9 +182,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() { // This function reveals a message when the user presses the back button and asks him if he is sure that he wants to exit the app
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+        if (drawer.isDrawerOpen(GravityCompat.START)) { //if the drawer is open the and the user presses the back button,the drawer is closed
             drawer.closeDrawer(GravityCompat.START);
         } else {
 
@@ -204,7 +198,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 }
             });
 
-            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() { //if the user presses no dialog is dismissed
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
@@ -262,13 +256,6 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 Intent signInPage = new Intent(getApplicationContext(), signin.class);
                 startActivity(signInPage);
                 break;
-
-            case R.id.wishList:
-                Intent wishList = new Intent(getApplicationContext(), signin.class);
-                startActivity(wishList);
-                break;
-
-
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
